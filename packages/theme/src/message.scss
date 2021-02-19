@@ -1,0 +1,50 @@
+@import './common/variable.scss';
+
+// notice
+.zh-message-notice {
+  padding: 4px;
+  text-align: center;
+}
+.zh-message-notice-content {
+  display: inline-block;
+  padding: 8px 10px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: all;
+}
+
+// message
+.zh-message-root {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  z-index: 1010;
+  pointer-events: none;
+}
+.zh-message-flex {
+  bottom: 0;
+  right: 0;
+  padding: 0 !important;
+  .zh-message-rootBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+}
+.zh-message-enter-active,
+.zh-message-leave-active {
+  transition: all 0.3s;
+}
+.zh-message-enter,
+.zh-message-leave-to {
+  opacity: 0;
+  height: 0;
+  padding: 0;
+}

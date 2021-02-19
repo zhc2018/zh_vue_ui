@@ -1,0 +1,128 @@
+@import "./common/variable.scss";
+// 滚动穿透控制
+.zh-dialog-hide-control {
+  overflow: hidden;
+}
+// mask
+.zh-modal-mask {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #000000;
+  opacity: 0.4;
+}
+.mask-enter-active {
+  animation: mask-in 0.3s;
+}
+.mask-leave-active {
+  animation: mask-out 0.3s;
+}
+@keyframes mask-in {
+  from {
+    opacity: 0;
+  }
+  top {
+    opacity: 0.4;
+  }
+}
+@keyframes mask-out {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 0;
+  }
+}
+// dialog
+.zh-modal-wrap {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zh-modal-content {
+  background: #ffffff;
+  padding: 0 32px;
+  box-sizing: border-box;
+  @include border-radius-panel;
+  @include box-shadow-panel;
+  position: relative;
+}
+.zh-modal-close {
+  position: absolute;
+  cursor: pointer;
+  @include font-md;
+  padding: 0 6px;
+  right: 8px;
+  top: 8px;
+  color: rgba(153, 153, 153 ,0.6);
+  &:hover,
+  &:active {
+    color: #999999;
+  }
+}
+.wrap-enter-active {
+  animation: wrap-in 0.3s;
+}
+.wrap-leave-active {
+  animation: wrap-out 0.3s;
+}
+@keyframes wrap-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes wrap-out {
+  form {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.modal-enter {
+  opacity: 0;
+  animation-direction: 0.3s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+.modal-leave {
+  animation-direction: 0.3s;
+  animation-fill-mode: both;
+  animation-play-state: paused;
+}
+.modal-enter-active {
+  animation: modal-in 0.3s;
+}
+.modal-leave-active {
+  animation: modal-out 0.3s;
+}
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0,0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1,1);
+  }
+}
+@keyframes modal-out {
+  from {
+    opacity: 1;
+    transform: scale(1,1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0,0);
+  }
+}

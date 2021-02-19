@@ -1,0 +1,67 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "ui 打包封装练习",
+  "main": "main.js",
+  "scripts": {
+    "serve": "npx webpack-dev-server --config build/webpack.dev.js",
+    "start": "npx webpack --config build/webpack.dev.js",
+    "build:files": "node ./build/bin/build-json.js && node ./build/bin/build-entry.js",
+    "build:umd": "npx webpack --config build/webpack.umd.js",
+    "build:com2": "npx webpack --config build/webpack.commonjs2.js",
+    "build:component": "npx webpack --config build/webpack.component.js",
+    "build:utils": "npx babel src --out-dir lib --ignore src/index.js",
+    "build:style": "node ./build/bin/build-cssfile.js && npx gulp build --gulpfile ./packages/theme/gulpfile.js && npx cp-cli ./packages/theme/lib ./lib/theme",
+    "clean": "rimraf ./components.json & rimraf ./src/index.js & rimraf ./packages/theme/src/index.scss & rimraf ./packages/theme/lib & rimraf ./lib",
+    "build": "npm run clean && npm run build:files && npm run build:umd && npm run build:com2 && npm run build:component && npm run build:utils && npm run build:style"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "vue",
+    "component"
+  ],
+  "author": "zhc",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/runtime": "^7.11.2",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "cp-cli": "^2.0.0",
+    "css-loader": "^4.3.0",
+    "file-loader": "^6.1.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-style-aliases": "^1.1.11",
+    "html-webpack-plugin": "^4.4.1",
+    "json-templater": "^1.2.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^4.0.1",
+    "progress-bar-webpack-plugin": "^2.1.0",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^10.0.2",
+    "style-loader": "^1.2.1",
+    "uppercamelcase": "^3.0.0",
+    "url-loader": "^4.1.0",
+    "vue-loader": "^15.9.3",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.4",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "dependencies": {
+    "vue": "^2.6.12",
+    "vue-router": "^3.4.3"
+  }
+}

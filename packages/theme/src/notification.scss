@@ -1,0 +1,77 @@
+@import './common/variable.scss';
+// notice
+.zh-notification-notice {
+  width: 334px;
+  padding: 4px;
+}
+.zh-notification-notice-content {
+  padding: 12px 20px;
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: all;
+}
+.zh-notification-content-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #000000;
+}
+.zh-notification-content-titleText {
+  width: 100%;
+  flex: auto;
+  margin-bottom: 10px;
+}
+.zh-notification-content-close {
+  font-size: 16px;
+  line-height: 1;
+  margin-top: -4px;
+  padding: 5px;
+  cursor: pointer;
+  flex: none;
+  margin-left: 20px;
+}
+// notification
+.zh-notification-root {
+  position: fixed;
+  margin: 0;
+  padding: 0 24px 0;
+  z-index: 1010;
+  pointer-events: none;
+}
+.zh-notification-rootBox {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+  }
+}
+.zh-notification-enter-active{
+  transition: all 0.5s;
+}
+.zh-notification-move {
+  transition: all 0.3s;
+}
+.zh-notification-leave-active {
+  transition: all 0.3s;
+  position: absolute;
+}
+.zh-notification-topLeft.zh-notification-enter,
+.zh-notification-bottomLeft.zh-notification-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+.zh-notification-topRight.zh-notification-enter,
+.zh-notification-bottomRight.zh-notification-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.zh-notification-topLeft.zh-notification-leave-to,.zh-notification-topRight.zh-notification-leave-to {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+.zh-notification-bottomLeft.zh-notification-leave-to,.zh-notification-bottomRight.zh-notification-leave-to {
+  opacity: 0;
+  transform: translateY(-50%);
+}

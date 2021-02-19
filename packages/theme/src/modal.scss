@@ -1,0 +1,71 @@
+@import './common/variable.scss';
+@import './dialog.scss';
+
+.zh-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include font-browser;
+  color: $color-font-base;
+  padding: 24px 0;
+  border-bottom: 2px solid #EFEFEF;
+}
+.zh-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 0;
+  .zh-modal-footer-btn {
+    @include font-browser;
+    @include border-radius-base;
+    min-width: 144px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    & + .zh-modal-footer-btn {
+      margin-left: 64px;
+    }
+    &.footer-btnConfirm {
+      padding: 10px 24px;
+      background: $color-primary;
+      color: $color-font-light;
+      &:hover {
+        background: $color-primary-hover;
+      }
+      &:active {
+        background: $color-parmary-active;
+      }
+    }
+    &.footer-btnConfirm-warning,
+    &.footer-btnConfirm-warn {
+      background: $color-warning;
+      &:hover {
+        background: $color-warning-hover;
+      }
+      &:active {
+        background: $color-waring-active;
+      }
+    }
+    &.footer-btnConfirm-disable,
+    &.footer-btnConfirm-disable:hover,
+    &.footer-btnConfirm-disable:active {
+      background: $color-theme-disable;
+      cursor: not-allowed;
+    }
+    &.footer-btnCancel {
+      border: 2px solid $color-ghost;
+      padding: 8px 22px;
+      color: $color-font-medium;
+      &:hover {
+        color: $color-font-light;
+        border-color: $color-ghost-hover;
+        background: $color-ghost-hover;
+      }
+      &:active {
+        color: $color-font-light;
+        border-color: $color-ghost-active;
+        background: $color-ghost-active;
+      }
+    }
+  }
+}
